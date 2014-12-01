@@ -21,7 +21,7 @@ namespace EffectivePatterns
 	};
 
 	template <typename YieldValue = void>
-	class Coroutine : public NonCopyable
+	class Coroutine final : public NonCopyable
 	{
 	public:
 		Coroutine(void) = delete;
@@ -93,7 +93,7 @@ namespace EffectivePatterns
 		}
 
 	private:
-		class InterruptedException : public std::exception
+		class InterruptedException final : public std::exception
 		{
 
 		};
@@ -123,7 +123,7 @@ namespace EffectivePatterns
 	};
 
 	template <>
-	class Coroutine<void> : public NonCopyable
+	class Coroutine<void> final : public NonCopyable
 	{
 	public:
 		Coroutine(void) = delete;
@@ -180,7 +180,7 @@ namespace EffectivePatterns
 		}
 
 	private:
-		class InterruptedException : public std::exception
+		class InterruptedException final : public std::exception
 		{
 
 		};
